@@ -155,7 +155,10 @@ def process_state_union_speeches(input_dir, output_file):
 if __name__ == "__main__":
     # Set paths
     input_directory = "sources/state_union"
-    output_csv = "state_union_paragraphs.csv"
+    output_csv = "outputs/state_union_paragraphs.csv"
+    
+    # Create output directory if it doesn't exist
+    os.makedirs("outputs", exist_ok=True)
     
     # Process the speeches
     df = process_state_union_speeches(input_directory, output_csv)

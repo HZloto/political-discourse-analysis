@@ -15,9 +15,9 @@ load_dotenv()
 
 # ------------- CONFIG -------------
 MODEL = "gpt-4o"  # Use GPT-4o for best results
-INPUT_CSV = "state_union_paragraphs.csv"
-OUTPUT_CSV = "state_union_with_assessment.csv"
-PROMPT_FILE = "assessment_prompt.txt"
+INPUT_CSV = "outputs/state_union_paragraphs.csv"
+OUTPUT_CSV = "outputs/state_union_with_assessment.csv"
+PROMPT_FILE = "prompts/assessment_prompt.txt"
 CONCURRENCY = 10                 # number of in-flight requests
 RPS_LIMIT = 10                   # requests per second (tune to your org/project limits)
 SAVE_INTERVAL = 50               # Save progress every N rows
