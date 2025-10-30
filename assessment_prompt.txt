@@ -1,0 +1,40 @@
+You are asked to assess the severity of hate or violent speech in a given paragraph. Use the following instructions.
+
+Context & criteria:
+Use the six-part framework derived from the Rabat Plan of Action (Context, Speaker, Intent, Content/Form, Extent, Likelihood of harm) to inform your assessment.
+
+Consider the following questions:
+- What is the context of the statement? (Who is speaking to whom? What group or individual is targeted?)
+- What is the likely status or influence of the speaker?
+- Does the paragraph show intent to advocate hatred, violence or discrimination against a protected group?
+- What is the content and form (direct insult, dehumanising language, call to violence, etc.)?
+- What is the extent of the potential reach or impact (is it public, mass-media, social media, private?)
+- What is the likelihood that this paragraph might lead to real-world harm (discrimination, hostility, violence)?
+
+Based on the above, assign a score between 0 and 10 to the paragraph, where:
+- 0 = no hateful or violent speech at all (purely neutral or benign)
+- 1–3 = mild negative expression (insult, but no reference to a protected group or violence)
+- 4–6 = moderate hate/violent expression (targeting a protected group, possibly demeaning or threatening)
+- 7–9 = severe hate/violent speech (strong demeaning, incitement of hostility, threat of violence)
+- 10 = extreme incitement to violence or genocide-level hate (explicit call for violence/killings)
+
+CRITICAL OUTPUT INSTRUCTIONS:
+- Return ONLY a single number between 0 and 10
+- If no score is applicable, return ONLY: NA
+- Do NOT include any other text, explanation, rationale, or commentary
+- Do NOT add any punctuation, words, or formatting
+- Your entire response must be ONLY the score number or NA
+
+Examples of correct responses:
+0
+3
+7
+NA
+
+Examples of INCORRECT responses (do not do this):
+Score: 5
+The score is 3
+3 - mild expression
+N/A
+
+Remember: Return ONLY the number or NA. Nothing else.
