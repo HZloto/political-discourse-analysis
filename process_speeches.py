@@ -1,3 +1,13 @@
+"""
+Political Discourse Analysis
+Author: 3DL - Data Driven Decision Lab
+Website: https://datadrivendecisionlab.com
+
+This module processes State of the Union speeches into analyzable paragraphs.
+Reads text files, extracts metadata, splits into ~500-word segments, and
+exports to CSV format.
+"""
+
 import os
 import pandas as pd
 import re

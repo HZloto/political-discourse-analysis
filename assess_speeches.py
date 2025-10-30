@@ -1,3 +1,13 @@
+"""
+Political Discourse Analysis - Hate Speech Assessment
+Author: 3DL - Data Driven Decision Lab
+Website: https://datadrivendecisionlab.com
+
+This module scores paragraphs from State of the Union speeches for hate/violent
+speech severity using GPT-4o and the Rabat Plan of Action framework.
+Implements async batch processing with retry logic and incremental saving.
+"""
+
 # pip install openai==1.* pandas python-dotenv tenacity aiolimiter
 import asyncio
 import os

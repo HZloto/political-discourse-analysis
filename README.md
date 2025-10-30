@@ -61,8 +61,11 @@ political-discourse-analysis/
 │   └── assessment_prompt.txt  # LLM assessment instructions
 ├── process_speeches.py        # Convert speeches to paragraphs
 ├── assess_speeches.py         # Score paragraphs using GPT-4o
+├── run_pipeline.py            # Complete pipeline automation
 ├── .env                       # API credentials (not in git)
+├── .gitignore                 # Git ignore rules
 ├── requirements.txt           # Python dependencies
+├── LICENSE                    # MIT License
 └── README.md                  # This file
 ```
 
@@ -100,6 +103,24 @@ political-discourse-analysis/
    ```
 
 ## Usage
+
+### Quick Start: Run Complete Pipeline
+
+```bash
+python run_pipeline.py
+```
+
+This will automatically:
+1. Process all speeches into paragraphs
+2. Assess hate/violence scores for each paragraph
+3. Save results to `outputs/state_union_with_assessment.csv`
+
+To skip speech processing (if already done):
+```bash
+python run_pipeline.py --skip-processing
+```
+
+### Manual Step-by-Step Execution
 
 ### Step 1: Process Speeches into Paragraphs
 
