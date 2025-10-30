@@ -82,6 +82,31 @@ def run_assessment():
     print("\n✅ Assessment completed successfully")
     return True
 
+def run_visualization():
+    """Generate visualizations from the assessment results."""
+    print("\n" + "="*60)
+    print("STEP 3: Generating visualizations")
+    print("="*60 + "\n")
+    
+    # Check if assessment file exists
+    assessment_file = Path("outputs/state_union_with_assessment.csv")
+    if not assessment_file.exists():
+        print("❌ ERROR: Assessment file not found")
+        print("Please run assessment first")
+        return False
+    
+    result = subprocess.run(
+        [sys.executable, "generate_visuals.py"],
+        cwd=os.getcwd()
+    )
+    
+    if result.returncode != 0:
+        print("\n❌ Visualization failed!")
+        return False
+    
+    print("\n✅ Visualizations generated successfully")
+    return True
+
 def main():
     """Run the complete pipeline."""
     print("""
@@ -111,6 +136,10 @@ def main():
     if not run_assessment():
         sys.exit(1)
     
+    # Step 3: Generate visualizations
+    if not run_visualization():
+        sys.exit(1)
+    
     # Success!
     print("\n" + "="*60)
     print("✅ PIPELINE COMPLETED SUCCESSFULLY!")
@@ -118,9 +147,12 @@ def main():
     print("\nOutput files:")
     print("  📄 outputs/state_union_paragraphs.csv")
     print("  📊 outputs/state_union_with_assessment.csv")
+    print("  📈 outputs/violence_scores_paragraph_level.png")
+    print("  📈 outputs/violence_scores_speech_average.png")
+    print("  📈 outputs/violence_scores_distribution.png")
     print("\nNext steps:")
+    print("  - Review visualizations in outputs/ directory")
     print("  - Analyze results in outputs/state_union_with_assessment.csv")
-    print("  - Visualize score distributions by president/party/year")
     print("  - Conduct statistical analysis of temporal trends")
     print()
 

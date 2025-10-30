@@ -32,21 +32,32 @@ We use the **Rabat Plan of Action** six-part framework for assessing incitement 
 5. **Extent**: Reach and magnitude of the speech act (public/private, media coverage)
 6. **Likelihood of Harm**: Imminence and probability of real-world consequences
 
-### Scoring Scale (0-10)
+### Calibrated Scoring Scale (0-10)
 
-- **0**: No hateful or violent speech (neutral/benign)
-- **1-3**: Mild negative expression (insults without targeting protected groups)
-- **4-6**: Moderate hate/violent expression (targeting protected groups with demeaning language)
-- **7-9**: Severe hate/violent speech (strong incitement to hostility or threats)
-- **10**: Extreme incitement to violence or genocide-level hate speech
+The scale has been calibrated specifically for State of the Union addresses to capture nuances in political rhetoric:
+
+- **0**: Pure platitudes, ceremonial language (e.g., "Thank you for gathering tonight")
+- **1**: General policy discussion without targeting groups
+- **2**: Mild us-vs-them framing, vague external threats
+- **3**: Clear in-group/out-group division, identifying adversaries
+- **4**: Explicit enemy identification, threat framing of specific groups
+- **5**: Strong adversarial language, dehumanizing metaphors
+- **6**: Explicit dehumanization, militaristic language toward groups
+- **7**: Strong incitement language, calls for hostile action
+- **8**: Severe dehumanization, explicit threat construction
+- **9**: Direct incitement to hostility/violence
+- **10**: Explicit calls for genocide or mass violence
+
+**Note**: The scale is calibrated so that 0 is rare (only ceremonial statements). Most policy discussion scores 1-2, with scores of 3+ indicating increasingly adversarial rhetoric.
 
 ### Technical Implementation
 
 - **Model**: OpenAI GPT-4o
-- **Processing**: Asynchronous batch processing with rate limiting
+- **Processing**: Asynchronous batch processing with rate limiting (10 req/s)
 - **Validation**: Strict output format enforcement (numeric scores only)
 - **Reliability**: Automatic retry logic with exponential backoff
 - **Incremental saving**: Progress checkpoints every 50 paragraphs
+- **Visualization**: Professional matplotlib/seaborn charts with party-colored backgrounds
 
 ## Project Structure
 
@@ -54,15 +65,20 @@ We use the **Rabat Plan of Action** six-part framework for assessing incitement 
 political-discourse-analysis/
 ├── sources/
 │   └── state_union/          # Original speech text files (80 files)
-├── outputs/                   # Generated datasets
+├── outputs/                   # Generated datasets and visualizations
 │   ├── state_union_paragraphs.csv           # Processed paragraphs
-│   └── state_union_with_assessment.csv      # Paragraphs with scores
+│   ├── state_union_with_assessment.csv      # Paragraphs with scores
+│   ├── violence_scores_paragraph_level.png  # Scatter plot visualization
+│   ├── violence_scores_speech_average.png   # Bar chart by speech
+│   └── violence_scores_distribution.png     # Score distribution charts
 ├── prompts/
 │   └── assessment_prompt.txt  # LLM assessment instructions
 ├── process_speeches.py        # Convert speeches to paragraphs
 ├── assess_speeches.py         # Score paragraphs using GPT-4o
+├── generate_visuals.py        # Create professional visualizations
 ├── run_pipeline.py            # Complete pipeline automation
 ├── .env                       # API credentials (not in git)
+├── .env.example               # Template for environment variables
 ├── .gitignore                 # Git ignore rules
 ├── requirements.txt           # Python dependencies
 ├── LICENSE                    # MIT License
@@ -94,6 +110,17 @@ political-discourse-analysis/
    ```bash
    pip install -r requirements.txt
    ```
+   
+   **Dependencies include**:
+   - `openai` - GPT-4o API access
+   - `pandas` - Data processing
+   - `python-dotenv` - Environment variables
+   - `tenacity` - Retry logic
+   - `aiolimiter` - Rate limiting
+   - `matplotlib` - Visualization
+   - `seaborn` - Statistical graphics
+   - `scipy` - Scientific computing
+   - `numpy` - Numerical operations
 
 4. **Configure API key**
    
@@ -111,9 +138,12 @@ python run_pipeline.py
 ```
 
 This will automatically:
-1. Process all speeches into paragraphs
-2. Assess hate/violence scores for each paragraph
-3. Save results to `outputs/state_union_with_assessment.csv`
+1. Process all speeches into ~500-word paragraphs
+2. Assess hate/violence scores for each paragraph using GPT-4o
+3. Generate professional visualizations
+4. Save all outputs to `outputs/` directory
+
+**Runtime**: ~2-3 minutes for 936 paragraphs
 
 To skip speech processing (if already done):
 ```bash
@@ -182,8 +212,16 @@ Scored paragraphs with hate/violence assessment (936 rows × 5 columns)
 Sample row:
 ```csv
 year,president,party,paragraph,hate_violence_score
-2023,Biden,Democratic,"My fellow Americans, we meet tonight...",0
+2023,Biden,Democratic,"My fellow Americans, we meet tonight...",1
 ```
+
+### Visualizations
+
+1. **`violence_scores_paragraph_level.png`** - Scatter plot showing all 936 individual paragraph scores over time with party-colored backgrounds and trend line
+
+2. **`violence_scores_speech_average.png`** - Bar chart showing average scores per State of the Union address with president labels
+
+3. **`violence_scores_distribution.png`** - Histogram showing overall score distribution and comparison by political party
 
 ## Research Applications
 

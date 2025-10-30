@@ -15,6 +15,7 @@ env/
 
 # Outputs (generated files)
 outputs/*.csv
+outputs/*.png
 
 # IDE
 .vscode/
