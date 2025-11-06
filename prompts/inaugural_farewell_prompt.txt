@@ -1,0 +1,72 @@
+You are assessing the severity of hate or violent speech in presidential inaugural and farewell address paragraphs. These are formal presidential speeches with massive reach and influence.
+
+IMPORTANT CONTEXT:
+- These are inaugural and farewell addresses by U.S. Presidents (1789-2025)
+- Speakers have the highest political authority and influence in the nation
+- Speeches are broadcast nationally with enormous public reach
+- Even subtle rhetoric can influence millions and shape national discourse
+- The formal setting does NOT diminish the impact of divisive or violent language
+- Be SENSITIVE to coded language, othering, us-vs-them framing, and enemy construction
+- Inaugural addresses set the tone for incoming administrations
+- Farewell addresses often reflect on legacies and offer warnings
+
+Use the six-part Rabat Plan of Action framework:
+1. Context: National address, massive audience, presidential authority
+2. Speaker: Highest political office, commander-in-chief, sets national tone
+3. Intent: Look for patterns of othering, scapegoating, threat construction
+4. Content/Form: Dehumanization, enemy framing, militaristic language, exclusionary rhetoric
+5. Extent: Maximum reach - national broadcast, historical record, policy implications
+6. Likelihood of harm: Presidential speech can legitimize discrimination, shape policy, influence public attitudes
+
+CALIBRATED SCORING SCALE (0-10):
+
+0 = Pure platitudes, ceremonial language, completely neutral procedural statements
+    Example: "Thank you for gathering tonight" or "The state of our union is strong"
+
+1 = General policy discussion without targeting groups, mild partisan rhetoric
+    Example: "We must reduce spending" or "The opposition's approach won't work"
+
+2 = Mild us-vs-them framing, vague external threats, partisan criticism
+    Example: "Our enemies watch us" or "Those who oppose this don't understand"
+
+3 = Clear in-group/out-group division, identifying adversaries, mild othering
+    Example: "Criminal elements threaten our way of life" or "Foreign powers seek to undermine us"
+
+4 = Explicit enemy identification, threat framing of specific groups, tough rhetoric
+    Example: "Illegal immigrants bring crime" or "Radical elements must be stopped"
+
+5 = Strong adversarial language, dehumanizing metaphors, calls for aggressive action
+    Example: "We will crush our enemies" or describing groups as threats/invaders
+
+6 = Explicit dehumanization, militaristic language toward groups, enemy othering
+    Example: War rhetoric directed at populations, describing people as dangerous/subhuman
+
+7 = Strong incitement language, clear calls for hostile action against groups
+    Example: Explicitly calling for removal, exclusion, or aggressive measures against populations
+
+8 = Severe dehumanization, explicit threat construction, incitement to discrimination
+    Example: Describing groups as existential threats requiring elimination from society
+
+9 = Direct incitement to hostility/violence, genocide-adjacent rhetoric
+    Example: Calling for violent action, describing groups as needing to be destroyed
+
+10 = Explicit calls for genocide, mass violence, or killings
+     Example: Direct advocacy for extermination or mass killing of populations
+
+SCORING GUIDANCE:
+- Score 0 ONLY for purely ceremonial/procedural statements with zero political content
+- Most policy discussions should score 1-3 (they involve framing, choices, implicit values)
+- Any mention of threats, enemies, or adversaries should score 3+
+- Strong us-vs-them or militaristic language should score 4-6
+- Dehumanization or explicit calls for hostile action score 7+
+- DO NOT default to 0 - use the full scale
+- Presidential rhetoric carries weight - score accordingly
+
+CRITICAL OUTPUT INSTRUCTIONS:
+- Return ONLY a single number between 0 and 10
+- If truly no political content exists, return: NA
+- Do NOT include any other text, explanation, rationale, or commentary
+- Do NOT add any punctuation, words, or formatting
+- Your entire response must be ONLY the score number or NA
+
+Remember: Use the FULL scale. Score 0 is RARE. Most political speech should score 1-4.
