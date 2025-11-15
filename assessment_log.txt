@@ -1,0 +1,101 @@
+Loading CSV: outputs/inaugural_farewell_paragraphs.csv
+Found 445 paragraphs to process
+  - Inaugural: 323
+  - Farewell: 122
+Using model: gpt-4o
+Concurrency: 10, Rate limit: 10 req/s
+Starting assessment...
+
+Processing batch 1-50...
+Progress: 50/445 (11.2%) | Rate: 7.0 req/s | ETA: 0.9 min | Errors: 0
+Saved checkpoint to outputs/inaugural_farewell_with_assessment.csv
+
+Processing batch 51-100...
+Progress: 100/445 (22.5%) | Rate: 6.8 req/s | ETA: 0.9 min | Errors: 0
+Saved checkpoint to outputs/inaugural_farewell_with_assessment.csv
+
+Processing batch 101-150...
+Progress: 150/445 (33.7%) | Rate: 7.3 req/s | ETA: 0.7 min | Errors: 0
+Saved checkpoint to outputs/inaugural_farewell_with_assessment.csv
+
+Processing batch 151-200...
+Progress: 200/445 (44.9%) | Rate: 7.4 req/s | ETA: 0.6 min | Errors: 0
+Saved checkpoint to outputs/inaugural_farewell_with_assessment.csv
+
+Processing batch 201-250...
+Progress: 250/445 (56.2%) | Rate: 7.1 req/s | ETA: 0.5 min | Errors: 0
+Saved checkpoint to outputs/inaugural_farewell_with_assessment.csv
+
+Processing batch 251-300...
+Progress: 300/445 (67.4%) | Rate: 7.1 req/s | ETA: 0.3 min | Errors: 0
+Saved checkpoint to outputs/inaugural_farewell_with_assessment.csv
+
+Processing batch 301-350...
+Progress: 350/445 (78.7%) | Rate: 7.3 req/s | ETA: 0.2 min | Errors: 0
+Saved checkpoint to outputs/inaugural_farewell_with_assessment.csv
+
+Processing batch 351-400...
+Error processing row 379: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-ArOGdtBry28MK0AZ0hVRC0vl on tokens per min (TPM): Limit 450000, Used 450000, Requested 1770. Please try again in 235ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+Error processing row 381: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-ArOGdtBry28MK0AZ0hVRC0vl on tokens per min (TPM): Limit 450000, Used 450000, Requested 1772. Please try again in 236ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+Error processing row 382: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-ArOGdtBry28MK0AZ0hVRC0vl on tokens per min (TPM): Limit 450000, Used 450000, Requested 1821. Please try again in 242ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+Error processing row 383: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-ArOGdtBry28MK0AZ0hVRC0vl on tokens per min (TPM): Limit 450000, Used 450000, Requested 1791. Please try again in 238ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+Error processing row 380: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-ArOGdtBry28MK0AZ0hVRC0vl on tokens per min (TPM): Limit 450000, Used 450000, Requested 1373. Please try again in 183ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+Error processing row 384: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-ArOGdtBry28MK0AZ0hVRC0vl on tokens per min (TPM): Limit 450000, Used 449353, Requested 1249. Please try again in 80ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+Error processing row 385: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-ArOGdtBry28MK0AZ0hVRC0vl on tokens per min (TPM): Limit 450000, Used 448362, Requested 1780. Please try again in 18ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+Error processing row 386: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-ArOGdtBry28MK0AZ0hVRC0vl on tokens per min (TPM): Limit 450000, Used 449258, Requested 1773. Please try again in 137ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+Error processing row 389: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-ArOGdtBry28MK0AZ0hVRC0vl on tokens per min (TPM): Limit 450000, Used 448703, Requested 1824. Please try again in 70ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+Error processing row 394: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-ArOGdtBry28MK0AZ0hVRC0vl on tokens per min (TPM): Limit 450000, Used 448800, Requested 1793. Please try again in 79ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+Error processing row 397: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-ArOGdtBry28MK0AZ0hVRC0vl on tokens per min (TPM): Limit 450000, Used 450000, Requested 1699. Please try again in 226ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+Error processing row 398: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-ArOGdtBry28MK0AZ0hVRC0vl on tokens per min (TPM): Limit 450000, Used 450000, Requested 1804. Please try again in 240ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+Error processing row 399: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-ArOGdtBry28MK0AZ0hVRC0vl on tokens per min (TPM): Limit 450000, Used 450000, Requested 1841. Please try again in 245ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+Progress: 400/445 (89.9%) | Rate: 7.1 req/s | ETA: 0.1 min | Errors: 13
+Saved checkpoint to outputs/inaugural_farewell_with_assessment.csv
+
+Processing batch 401-445...
+Error processing row 408: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-ArOGdtBry28MK0AZ0hVRC0vl on tokens per min (TPM): Limit 450000, Used 450000, Requested 1790. Please try again in 238ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+Error processing row 404: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-ArOGdtBry28MK0AZ0hVRC0vl on tokens per min (TPM): Limit 450000, Used 448743, Requested 1742. Please try again in 64ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+Error processing row 402: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-ArOGdtBry28MK0AZ0hVRC0vl on tokens per min (TPM): Limit 450000, Used 450000, Requested 1837. Please try again in 244ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+Error processing row 403: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-ArOGdtBry28MK0AZ0hVRC0vl on tokens per min (TPM): Limit 450000, Used 450000, Requested 1784. Please try again in 237ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+Error processing row 411: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-ArOGdtBry28MK0AZ0hVRC0vl on tokens per min (TPM): Limit 450000, Used 450000, Requested 1800. Please try again in 240ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+Error processing row 416: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-ArOGdtBry28MK0AZ0hVRC0vl on tokens per min (TPM): Limit 450000, Used 449084, Requested 1803. Please try again in 118ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+Error processing row 413: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-ArOGdtBry28MK0AZ0hVRC0vl on tokens per min (TPM): Limit 450000, Used 449135, Requested 1753. Please try again in 118ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+Error processing row 418: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-ArOGdtBry28MK0AZ0hVRC0vl on tokens per min (TPM): Limit 450000, Used 448225, Requested 1811. Please try again in 4ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+Error processing row 425: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-ArOGdtBry28MK0AZ0hVRC0vl on tokens per min (TPM): Limit 450000, Used 448493, Requested 1740. Please try again in 31ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+Error processing row 427: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-ArOGdtBry28MK0AZ0hVRC0vl on tokens per min (TPM): Limit 450000, Used 449439, Requested 1263. Please try again in 93ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+Error processing row 439: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-ArOGdtBry28MK0AZ0hVRC0vl on tokens per min (TPM): Limit 450000, Used 450000, Requested 1733. Please try again in 231ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+Error processing row 443: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-ArOGdtBry28MK0AZ0hVRC0vl on tokens per min (TPM): Limit 450000, Used 449624, Requested 1833. Please try again in 194ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+Progress: 445/445 (100.0%) | Rate: 6.8 req/s | ETA: 0.0 min | Errors: 25
+Saved checkpoint to outputs/inaugural_farewell_with_assessment.csv
+
+
+============================================================
+Processing complete!
+Total time: 1.1 minutes
+Total paragraphs processed: 445
+Successful: 420
+Errors: 25
+Average rate: 6.8 req/s
+
+Score distribution by speech type:
+
+Inaugural:
+hate_violence_score
+0         23
+1        206
+2         43
+3         26
+4          8
+6          1
+ERROR     16
+
+Farewell:
+hate_violence_score
+0        13
+1        66
+2        24
+3         9
+4         1
+ERROR     9
+
+Output saved to: outputs/inaugural_farewell_with_assessment.csv
+============================================================

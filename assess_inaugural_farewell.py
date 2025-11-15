@@ -153,10 +153,38 @@ async def worker(row_index: int, row: Dict[str, Any], total: int) -> Dict[str, A
 async def main():
     print(f"Loading CSV: {INPUT_CSV}")
     df = pd.read_csv(INPUT_CSV)
-    total_rows = len(df)
+    
+    # Check if output file exists and load existing results
+    if Path(OUTPUT_CSV).exists():
+        print(f"Found existing output file: {OUTPUT_CSV}")
+        existing_df = pd.read_csv(OUTPUT_CSV)
+        print(f"Loaded {len(existing_df)} existing assessments")
+        
+        # Filter to only process rows with ERROR or missing scores
+        rows_to_process = existing_df[
+            (existing_df['hate_violence_score'] == 'ERROR') | 
+            (existing_df['hate_violence_score'].isna())
+        ].index.tolist()
+        
+        if not rows_to_process:
+            print("\n" + "="*60)
+            print("All rows already have valid scores. Nothing to process!")
+            print("="*60)
+            return
+        
+        print(f"Found {len(rows_to_process)} rows with ERROR or missing scores to retry")
+        df = existing_df.copy()
+        total_rows = len(rows_to_process)
+    else:
+        print(f"No existing output file found. Processing all rows.")
+        rows_to_process = list(range(len(df)))
+        total_rows = len(df)
+    
     print(f"Found {total_rows} paragraphs to process")
-    print(f"  - Inaugural: {len(df[df['speech_type'] == 'inaugural'])}")
-    print(f"  - Farewell: {len(df[df['speech_type'] == 'farewell'])}")
+    if 'speech_type' in df.columns:
+        to_process_df = df.iloc[rows_to_process] if Path(OUTPUT_CSV).exists() else df
+        print(f"  - Inaugural: {len(to_process_df[to_process_df['speech_type'] == 'inaugural'])}")
+        print(f"  - Farewell: {len(to_process_df[to_process_df['speech_type'] == 'farewell'])}")
     print(f"Using model: {MODEL}")
     print(f"Concurrency: {CONCURRENCY}, Rate limit: {RPS_LIMIT} req/s")
     print(f"Starting assessment...\n")
@@ -164,7 +192,7 @@ async def main():
     start_time = time.time()
     
     # Initialize results list
-    results = []
+    results = df.to_dict('records') if Path(OUTPUT_CSV).exists() else []
     processed_count = 0
     error_count = 0
     
@@ -177,25 +205,26 @@ async def main():
 
     # Process in batches to save incrementally
     batch_size = SAVE_INTERVAL
-    for batch_start in range(0, total_rows, batch_size):
-        batch_end = min(batch_start + batch_size, total_rows)
-        batch_indices = range(batch_start, batch_end)
+    num_batches = (total_rows + batch_size - 1) // batch_size
+    
+    for batch_num in range(num_batches):
+        batch_start_local = batch_num * batch_size
+        batch_end_local = min(batch_start_local + batch_size, total_rows)
+        batch_indices = [rows_to_process[i] for i in range(batch_start_local, batch_end_local)]
         
-        print(f"Processing batch {batch_start + 1}-{batch_end}...")
+        print(f"Processing batch {batch_start_local + 1}-{batch_end_local} (actual rows: {batch_indices[0]}-{batch_indices[-1]})...")
         
-        tasks = [run_one(i, df.iloc[i].to_dict()) for i in batch_indices]
+        tasks = [run_one(idx, df.iloc[idx].to_dict()) for idx in batch_indices]
         batch_results = await asyncio.gather(*tasks, return_exceptions=True)
         
         # Process batch results
         for i, res in enumerate(batch_results):
-            actual_idx = batch_start + i
+            actual_idx = batch_indices[i]
             if isinstance(res, Exception):
-                row = df.iloc[actual_idx].to_dict()
-                row["hate_violence_score"] = "ERROR"
-                results.append(row)
+                results[actual_idx]["hate_violence_score"] = "ERROR"
                 error_count += 1
             else:
-                results.append(res)
+                results[actual_idx] = res
                 if res.get("hate_violence_score") == "ERROR":
                     error_count += 1
             
